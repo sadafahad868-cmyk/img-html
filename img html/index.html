@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARIMBI | THE FLYING CHILD</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #0a0e27;
+            --secondary-bg: #111829;
+            --accent-blue: #00d4ff;
+            --accent-blue-dark: #0099cc;
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --border-color: #1e293b;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 800;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, #00a8cc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            margin-top: 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(30px);
+            }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1em;
+            color: var(--accent-blue);
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-size: 5.5em;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, var(--accent-blue) 0%, #00a8cc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.3em;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            font-weight: 300;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            font-size: 1em;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-blue) 0%, #00a8cc 100%);
+            color: var(--primary-bg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-blue);
+            border: 2px solid var(--accent-blue);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 120px 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 3em;
+            font-weight: 800;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .about-content h2 span {
+            color: var(--accent-blue);
+        }
+
+        .about-content p {
+            font-size: 1.1em;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat-card {
+            background: var(--secondary-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: var(--accent-blue);
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 800;
+            color: var(--accent-blue);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.95em;
+            font-weight: 600;
+        }
+
+        .about-image {
+            position: relative;
+            height: 500px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 12px;
+            border: 2px solid var(--accent-blue);
+        }
+
+        /* ===== PORTFOLIO SECTION ===== */
+        .portfolio {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 120px 40px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3em;
+            font-weight: 800;
+            margin-bottom: 80px;
+        }
+
+        .section-title span {
+            color: var(--accent-blue);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .portfolio-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            height: 450px;
+            cursor: pointer;
+            background: var(--secondary-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: all 0.4s ease;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 14, 39, 0.8);
+            backdrop-filter: blur(5px);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .portfolio-card:hover img {
+            transform: scale(1.1);
+            filter: brightness(0.7);
+        }
+
+        .portfolio-card:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--accent-blue);
+        }
+
+        .portfolio-description {
+            font-size: 0.95em;
+            color: var(--text-secondary);
+        }
+
+        .download-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .download-link:hover {
+            gap: 10px;
+        }
+
+        .download-link::after {
+            content: ' ↓';
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--secondary-bg);
+            border-top: 1px solid var(--border-color);
+            padding: 60px 40px 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, #00a8cc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border: 2px solid var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .social-link:hover {
+            background: var(--accent-blue);
+            color: var(--primary-bg);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .hero-title {
+                font-size: 3em;
+            }
+
+            .hero-subtitle {
+                font-size: 0.9em;
+            }
+
+            .hero-description {
+                font-size: 1.1em;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 80px 20px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio {
+                padding: 80px 20px;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            footer {
+                padding: 40px 20px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">ARIMBI 24</div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#footer">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-subtitle">Professional Athlete</div>
+            <h1 class="hero-title">
+                Meet <span>ARIMBI</span>
+                <br>Volleyball Champion
+            </h1>
+            <p class="hero-description">
+                Elite professional volleyball player bringing excellence to every serve, block, and spike. Passion,
+                precision, and performance.
+            </p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary">View Portfolio</button>
+                <button class="btn btn-secondary">Get in Touch</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="about-image">
+            <img src="player.jpg" alt="ARIWMBI - Volleyball Player">
+        </div>
+        <div class="about-content">
+            <h2>About the <span>Champion</span></h2>
+            <p>
+                ARIMBI is a professional volleyball player with years of competitive experience, dedicated to pushing
+                boundaries and achieving excellence on the court.
+            </p>
+            <p>
+                With a commitment to continuous improvement and teamwork, ARIMBI brings technical skill, strategic
+                thinking, and unmatched determination to every game.
+            </p>
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Matches Won</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Awards</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section class="portfolio" id="portfolio">
+        <h2 class="section-title">Portfolio <span>Showcase</span></h2>
+        <div class="gallery-grid">
+            <div class="portfolio-card">
+                <img src="player.jpg" alt="Player">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-title">Player</div>
+                    <div class="portfolio-description">Professional action shot</div>
+                    <a href="player.jpg" download class="download-link">Download Wallpaper</a>
+                </div>
+            </div>
+
+            <div class="portfolio-card">
+                <img src="stiker.jpg" alt="Maria">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-title">the flying kid
+
+                    </div>
+                    <div class="portfolio-description">Team collaboration moment</div>
+                    <a href="stiker.jpg" download class="download-link">Download Wallpaper</a>
+                </div>
+            </div>
+
+            <div class="portfolio-card">
+                <img src="fahad.jpg" alt="Fahad">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-title">hitter</div>
+                    <div class="portfolio-description">Dynamic performance</div>
+                    <a href="fahad.jpg" download class="download-link">Download Wallpaper</a>
+                </div>
+            </div>
+
+            <div class="portfolio-card">
+                <img src="dog.jpg" alt="Dog">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-title">Training Companion</div>
+                    <div class="portfolio-description">Off-court lifestyle</div>
+                    <a href="dog.jpg" download class="download-link">Download Wallpaper</a>
+                </div>
+            </div>
+
+            <div class="portfolio-card">
+                <img src="ball.jpg" alt="Ball">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-title">Game Focus</div>
+                    <div class="portfolio-description">Ready for action</div>
+                    <a href="ball.jpg" download class="download-link">Download Wallpaper</a>
+                </div>
+            </div>
+
+            <div class="portfolio-card">
+                <img src="sayam.jpg" alt="Sayam">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-title">Championship Moment</div>
+                    <div class="portfolio-description">Victory celebration</div>
+                    <a href="sayam.jpg" download class="download-link">Download Wallpaper</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-title">ARIMBI</div>
+            <p class="footer-text">THE FLYING CHILD | Portfolio & Wallpaper Showcase</p>
+
+            <div class="social-links">
+                <a href="#" class="social-link">🔗</a>
+                <a href="#" class="social-link">@</a>
+                <a href="#" class="social-link">📷</a>
+                <a href="#" class="IG arwimbi">📞</a>
+
+            </div>
+
+            <div class="footer-bottom">sss
+                <p>&copy; 2026 ARIMBI. All rights reserved. | Professional Portfolio Website</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
