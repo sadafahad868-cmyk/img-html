@@ -293,7 +293,8 @@
         .about-image img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
+            display: block;
             border-radius: 12px;
             border: 2px solid var(--accent-blue);
         }
@@ -338,8 +339,13 @@
         .portfolio-card img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
+            display: block;
             transition: all 0.4s ease;
+        }
+
+        .portfolio-card img.hitter-image {
+            object-position: center top;
         }
 
         .portfolio-overlay {
@@ -510,7 +516,7 @@
     <!-- NAVIGATION -->
     <nav>
         <div class="nav-container">
-            <div class="logo">ARIMBI 24</div>
+            <div class="logo">codex fahad</div>
             <ul class="nav-links">
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -542,7 +548,7 @@
     <!-- ABOUT SECTION -->
     <section class="about" id="about">
         <div class="about-image">
-            <img src="player.jpg" alt="ARIWMBI - Volleyball Player">
+            <img src="the flying kid.jpg" alt="The Flying Kid">
         </div>
         <div class="about-content">
             <h2>About the <span>Champion</span></h2>
@@ -585,20 +591,18 @@
             </div>
 
             <div class="portfolio-card">
-                <img src="stiker.jpg" alt="Maria">
+                <img src="stiker.jpg" alt="The Flying Kid">
                 <div class="portfolio-overlay">
-                    <div class="portfolio-title">the flying kid
-
-                    </div>
+                    <div class="portfolio-title">The Flying Kid</div>
                     <div class="portfolio-description">Team collaboration moment</div>
                     <a href="stiker.jpg" download class="download-link">Download Wallpaper</a>
                 </div>
             </div>
 
             <div class="portfolio-card">
-                <img src="fahad.jpg" alt="Fahad">
+                <img src="fahad.jpg" alt="Fahad" class="hitter-image">
                 <div class="portfolio-overlay">
-                    <div class="portfolio-title">hitter</div>
+                    <div class="portfolio-title">Hitter</div>
                     <div class="portfolio-description">Dynamic performance</div>
                     <a href="fahad.jpg" download class="download-link">Download Wallpaper</a>
                 </div>
@@ -628,6 +632,60 @@
                     <div class="portfolio-title">Championship Moment</div>
                     <div class="portfolio-description">Victory celebration</div>
                     <a href="sayam.jpg" download class="download-link">Download Wallpaper</a>
+                </div>
+            </div>
+
+            <div class="portfolio-card">
+                <img src="apple.jpg" alt="Apple">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-title">Opposite Hitter</div>
+                    <div class="portfolio-description">Fresh new photo from the folder</div>
+                    <a href="apple.jpg" download class="download-link">Download Wallpaper</a>
+                </div>
+            </div>
+
+            <div class="portfolio-card">
+                <img src="the flying kid.jpg" alt="The Flying Kid">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-title">The Flying Kid</div>
+                    <div class="portfolio-description">Action image added from folder</div>
+                    <a href="the flying kid.jpg" download class="download-link">Download Wallpaper</a>
+                </div>
+            </div>
+
+            <div class="portfolio-card">
+                <img src="winning moment.jpg" alt="Winning Moment">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-title">Winning Moment</div>
+                    <div class="portfolio-description">Celebration photo added from folder</div>
+                    <a href="winning moment.jpg" download class="download-link">Download Wallpaper</a>
+                </div>
+            </div>
+
+            <div class="portfolio-card">
+                <img src="The Blocker.jpg" alt="The Blocker">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-title">The Blocker</div>
+                    <div class="portfolio-description">New photo added from folder</div>
+                    <a href="The Blocker.jpg" download class="download-link">Download Wallpaper</a>
+                </div>
+            </div>
+
+            <div class="portfolio-card">
+                <img src="Arimbi Aggression.jpg" alt="Arimbi Aggression">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-title">Arimbi Aggression</div>
+                    <div class="portfolio-description">Latest photo added from folder</div>
+                    <a href="Arimbi Aggression.jpg" download class="download-link">Download Wallpaper</a>
+                </div>
+            </div>
+
+            <div class="portfolio-card">
+                <img src="see her glowing face.jpg" alt="See Her Glowing Face">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-title">without jessy</div>
+                    <div class="portfolio-description">New photo added from folder</div>
+                    <a href="see her glowing face.jpg" download class="download-link">Download Wallpaper</a>
                 </div>
             </div>
         </div>
