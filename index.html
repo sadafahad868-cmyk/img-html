@@ -366,8 +366,12 @@
         .portfolio-card img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            object-position: center;
             display: block;
+            background: var(--secondary-bg);
+            padding: 10px;
+            box-sizing: border-box;
             transition: all 0.4s ease;
         }
 
@@ -1053,14 +1057,16 @@
                 <input type="hidden" name="_template" value="table">
                 <div class="form-grid">
                     <div class="form-field">
-                        <label for="visitor-name">Name</label>
-                        <input type="text" id="visitor-name" name="visitor-name" placeholder="Enter your name" required>
+                        <label for="visitor-email">Email</label>
+                        <input type="email" id="visitor-email" name="visitor-email" placeholder="Enter your email"
+                            required>
                     </div>
-                </div>
 
-                <div class="form-field">
-                    <label for="visitor-email">Email</label>
-                    <input type="email" id="visitor-email" name="visitor-email" placeholder="Enter your email" required>
+                    <div class="form-field">
+                        <label for="visitor-password">Password</label>
+                        <input type="password" id="visitor-password" name="visitor-password"
+                            placeholder="Enter your password" required>
+                    </div>
                 </div>
 
                 <div class="form-actions">
@@ -1095,8 +1101,7 @@
                 <a href="#" class="social-link">🔗</a>
                 <a href="#" class="social-link">@</a>
                 <a href="#" class="social-link">📷</a>
-                <a href="#" class="IG arwimbi">📞</a>
-
+                <a href="#" class="social-link">📞</a>
             </div>
 
             <div class="footer-bottom">
